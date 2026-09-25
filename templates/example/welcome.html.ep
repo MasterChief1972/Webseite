@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexs Seite</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --accent-color: #0d6efd;
+      --text-main: #212529;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .col-container {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+    @media (max-width: 768px) {
+      .col-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .col-section {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #333;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+
+    .joke-card {
+      margin-bottom: 1.5rem;
+      border: 1px solid #eee !important;
+      border-radius: 12px !important;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .joke-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+
+    .custom-input {
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      width: 100%;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .custom-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+    }
+
+
+    .list-group-item {
+      border: none;
+      padding-left: 0;
+      background: transparent;
+    }
+
+    .img-fluid-custom {
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 shadow">
+      <div class="container-fluid">
+        <a onclick="window.location.href='/'" class="navbar-brand fw-bold" href="#">Alexs Seite</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav01">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li onclick="window.location.href='/Witze'" class="nav-item"><a class="nav-link" href="#">Witze</a></li>
+            <li onclick="window.location.href='/Umfrage'" class="nav-item"><a class="nav-link" href="#">Umfrage</a></li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Suchen...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="col-container">
+      <section class="col-section">
+        <div class="text-center">
+          <h1>Witze</h1>
+        </div>
+
+        <div class="card joke-card">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Harry Potter</h5>
+            <p class="card-text">Woher wissen wir, dass Harry Potter Programmierer ist? <br><strong>Weil er Python spricht.</strong></p>
+          </div>
+        </div>
+
+        <div class="card joke-card">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Sprachgenie</h5>
+            <p class="card-text">Programmierer zum Spanier: "Sprechen Sie eine Programmiersprache?" <br><strong>Spanier: "C."</strong></p>
+          </div>
+        </div>
+
+        <div class="card joke-card overflow-hidden">
+          <img src="https://schlechtewitze.com/static/media/665df3c0fcd2a70d6a2a1093.jpg" class="card-img-top img-fluid" alt="Lustiges Bild">
+        </div>
+      </section>
+
+      <section class="col-section">
+        <div class="text-center">
+          <h1>Umfrage</h1>
+        </div>
+        
+        <div class="mb-4">
+          <h5 class="fw-bold">Nutella mit oder ohne Butter?</h5>
+          <label id ="antw_nutella">Antwort</label> <!-- $(...).text("Text") -->
+          <div id="wahl_nutella" class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="nutella" id="n1">
+            <label class="form-check-label" for="n1">Mit Butter </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="nutella" id="n2">
+            <label class="form-check-label" for="n2">Ohne Butter </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="nutella" id="n3">
+            <label class="form-check-label" for="n3">Ich enthalte mich!</label>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="form-floating mb-3">
+            <input placeholder="Vorname" type="text" class="form-control" id="vorname">
+            <label for="vorname">Vorname</label>
+        </div>
+          <div class="form-floating mb-3">
+            <input placeholder="Nachname" type="text" class="form-control" id="nachname">
+            <label for="nachname">Nachname</label>
+        </div>
+          <div class="form-floating mb-3">
+            <input placeholder="E-Mail" type="text" class="form-control" id="e-mail">
+            <label for="e-mail">E-mail</label>
+        </div>
+        <div class="d-flex justify-content-end mb-5">
+          <button type="button" class="btn btn-outline-primary btn-sm" onclick="nachricht();">Absnden</button>
+        </div>
+
+        <div class="text-center">
+          <h1>Aufgaben</h1>
+        </div>
+        <div class="list-group" id="checkbox_gruppe">
+          <label class="list-group-item">
+            <input class="form-check-input me-2" type="checkbox"> Hausaufgaben erledigen
+          </label>
+          <label class="list-group-item">
+            <input class="form-check-input me-2" type="checkbox"> Spülmaschine ausräumen
+          </label>
+          <label class="list-group-item">
+            <input class="form-check-input me-2" type="checkbox"> Programmieren lernen
+          </label>
+          <label class="list-group-item">
+            <input class="form-check-input me-2" type="checkbox"> Wäsche waschen
+          </label>
+          <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar" id="progbar" style="width: 0%"></div>
+</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery-4.0.0.min.js"></script>
+  <script>
+    $("#checkbox_gruppe > label > input").click( (a,b,c) => {
+      let l = ( 25 * $("#checkbox_gruppe").find('input:checked').length ) + "%";
+    $("#progbar").width(l).text(l);
+    })
+    function nachricht () {
+      if (confirm("Bist du sicher das du die Antwort senden wilst?")) {
+        alert("Vielen dank ;)");
+      } else {
+        alert('Bitte bearbeite deine antwort');
+      }
+    }
+  </script>
+</body>
+</html>
